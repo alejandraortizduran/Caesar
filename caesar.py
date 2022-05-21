@@ -1,27 +1,26 @@
 import sys
 
-def caesar(args):
-    s=args
-    result = ""
+def caesar(n):
+    code = ""
     text = input('plaintext : ')
 
     for i in range(len(text)):
-        char = text[i]
+        c = text[i]
 
             # Uppercase characters
-        if (char.isupper()):
-            result += chr((ord(char) + s-65) % 26 + 65) if (char != ',') else char
+        if (c.isupper()):
+            code += chr((ord(c) + n-65) % 26 + 65)
 
             # Lowercase characters
         else:
-            if (char == ' '):
-                result +=char
-            elif (char == ','):
-                result +=char
+            if (c == ' '):
+                code +=c
+            elif (c == ','):
+                code +=c
             else:
-                result += chr((ord(char) + s - 97) % 26 + 97) 
+                code += chr((ord(c) + n - 97) % 26 + 97) 
 
-    print ("ciphertext : " + result)
+    print ("ciphertext : " + code)
     return
 
 if(len(sys.argv)==2):
@@ -30,9 +29,3 @@ if(len(sys.argv)==2):
 else:
     print('Invalid number of arguments')
     exit()
-    
-   
-    
-
-
-
